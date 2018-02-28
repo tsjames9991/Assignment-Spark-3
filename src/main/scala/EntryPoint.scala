@@ -1,5 +1,5 @@
 import org.apache.spark.SparkConf
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.SparkSession
 import model._
 
 object EntryPoint extends App {
@@ -15,4 +15,10 @@ object EntryPoint extends App {
   obj.matchesAsHomeTeam(spark).show()
   Log.info("\nHighest Win Percentage")
   obj.highestWinPercentage(spark).show(TEN)
+  Log.info("\nData Set Created")
+  getDataSet(spark).show()
+  Log.info("\nTotal Number Of Matches Played")
+  obj.numberOfMatches(spark)
+  Log.info("\nTop Ten Teams With Highest Wins")
+  obj.highestWin(spark).show(TEN)
 }
