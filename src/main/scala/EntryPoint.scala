@@ -9,7 +9,10 @@ object EntryPoint extends App {
     .config(sc)
     .getOrCreate()
   val obj = new Operations
-  obj.createDataFrame(spark)
-//  obj.matchesAsHomeTeam(spark)
-  obj.highestWin(spark)
+  Log.info("\nData Frame Created")
+  obj.createDataFrame(spark).show()
+  Log.info("\nMatches As Home Team")
+  obj.matchesAsHomeTeam(spark).show()
+  Log.info("\nHighest Win Percentage")
+  obj.highestWinPercentage(spark).show(TEN)
 }
